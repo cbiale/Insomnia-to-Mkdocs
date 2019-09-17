@@ -1,6 +1,6 @@
 # Insomnia to Mkdocs
 
-Genera un sitio Mkdocs a partir de un archivo generado por Insomnia.
+Genera un sitio Mkdocs a partir de un archivo JSON generado por Insomnia. Solo toma en cuenta lo especificado en los atributos __name__ y __description__.
 
 Consideraciones:
 
