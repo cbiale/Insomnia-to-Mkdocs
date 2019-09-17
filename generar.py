@@ -1,27 +1,39 @@
 import json
 import shutil
 import os
+import sys
 
 titulos = []
 descripciones = []
-directorio = "sitio_doc"
-nombre_sitio = "Chuck Norris"
 
-# abro prueba.json
-archivo = open('prueba.json')
+
+nombre_directorio = ""
+nombre_sitio = ""
+nombre_archivo = ""
+
+if len(sys.argv) == 4:
+        nombre_directorio = sys.argv[1]
+        nombre_sitio = sys.argv[2]
+        nombre_archivo = sys.argv[3]
+else:
+        print("Error en argumentos, formato: python genera.py nombre_directorio nombre_sitio nombre_archivo.json")
+        exit(1)
+
+# abro archivo json
+archivo = open(nombre_archivo)
 
 # elimino directorio
 try:
-	shutil.rmtree(directorio, )
+	shutil.rmtree(nombre_directorio, ignore_errors = True)
 except:
 	print("error al manejar directorios")
 	exit(1)
 
 # creo directorio
-os.mkdir(directorio)
+os.mkdir(nombre_directorio)
 
 # cambio de directorio
-os.chdir(directorio)
+os.chdir(nombre_directorio)
 
 # creo archivo yml
 f = open("mkdocs.yml","w+")
